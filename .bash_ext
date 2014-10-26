@@ -7,3 +7,6 @@ export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64
 export HADOOP_HOME=$STACK_HOME/hadoop-2.5.1
 export ZOOKEEPER_HOME=$STACK_HOME/zookeeper-3.4.6
 export ACCUMULO_HOME=$STACK_HOME/accumulo-1.6.1-dev/accumulo-1.6.1
+
+alias hadoop=$HADOOP_HOME/bin/hadoop
+alias accumulo=$ACCUMULO_HOME/bin/accumulo
