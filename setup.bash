@@ -71,9 +71,9 @@ clientPort=2181
 maxClientCnxns=100""" > $STACK_HOME/zookeeper-3.4.6/conf/zoo.cfg
 cp conf/examples/2GB/native-standalone/* conf
 #see http://wiki.bash-hackers.org/syntax/pe#overview
-sed -i "s/\/path\/to\/java/${JAVA_HOME//\//\/}/" conf/accumulo-env.sh
-sed -i "s/\/path\/to\/hadoop/${HADOOP_HOME//\//\/}/" conf/accumulo-env.sh
-sed -i "s/\/path\/to\/zookeeper/${ZOOKEEPER_HOME//\//\/}/" conf/accumulo-env.sh
+sed -i "s/\/path\/to\/java/${JAVA_HOME//\//\\\/}/" conf/accumulo-env.sh
+sed -i "s/\/path\/to\/hadoop/${HADOOP_HOME//\//\\\/}/" conf/accumulo-env.sh
+sed -i "s/\/path\/to\/zookeeper/${ZOOKEEPER_HOME//\//\\\/}/" conf/accumulo-env.sh
 #sed -i "s/comma separated list of zookeeper servers/localhost:2181/" conf/accumulo-site.xml
 echo '''<?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="configuration.xsl"?>
