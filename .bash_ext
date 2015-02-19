@@ -2,7 +2,8 @@
 # run "source .bash_ext"
 # loaded by ustack user in his .bashrc
 export STACK_HOME=/Data/stack
-export PATH=$PATH:$STACK_HOME/apache-maven-3.2.3/bin
+export M2_HOME=$STACK_HOME/apache-maven-3.2.3
+export PATH=$PATH:$M2_HOME/bin
 export JAVA_HOME=/usr/lib/jvm/java-1.7.0-openjdk.x86_64
 export HADOOP_HOME=$STACK_HOME/hadoop-2.5.1
 export ZOOKEEPER_HOME=$STACK_HOME/zookeeper-3.4.6
