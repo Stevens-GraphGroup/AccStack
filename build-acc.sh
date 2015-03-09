@@ -19,6 +19,7 @@ else
 fi
 $ACCUMULO_DEV_HOME/bin/build_native_library.sh 
 cp $ACCUMULO_HOME/conf/*.* $ACCUMULO_DEV_HOME/conf
-# don't include directories; meh, needs to cd
-#ls -F1 $ACCUMULO_HOME/conf/ | grep -v / | xargs cp -t $ACCUMULO_DEV_HOME/conf
+sed -i "s/<value>hdfs:\/\/localhost:9000\/accumulo<\/value>/<value>hdfs:\/\/localhost:9000\/accumulo-${VERSION}<\/value>/" $ACCUMULO_DEV_HOME/conf/accumulo-site.xml
+#accumulo init --instance-name instance-1.7.0 --password secret
+
 
