@@ -71,6 +71,7 @@ clientPort=2181
 maxClientCnxns=100""" > $STACK_HOME/zookeeper-3.4.6/conf/zoo.cfg
 cp conf/examples/2GB/native-standalone/* conf
 #see http://wiki.bash-hackers.org/syntax/pe#overview
+sed -i '/<configuration>/a\  <property> <!-- new in 1.6.0 -->\n   <name>instance.volumes</name>\n   <value>hdfs:\/\/localhost:9000\/accumulo<\/value>\n <\/property>' conf/accumulo-site.xml
 sed -i "s/\/path\/to\/java/${JAVA_HOME//\//\\\/}/" conf/accumulo-env.sh
 sed -i "s/\/path\/to\/hadoop/${HADOOP_HOME//\//\\\/}/" conf/accumulo-env.sh
 sed -i "s/\/path\/to\/zookeeper/${ZOOKEEPER_HOME//\//\\\/}/" conf/accumulo-env.sh
@@ -90,8 +91,12 @@ echo '''<?xml version="1.0" encoding="UTF-8"?>
 <!-- Put site-specific property overrides in this file. -->
 <configuration>
     <property>
-        <name>dfs.namenode.replication</name>
+        <name>dfs.namenode.replication.min</name>
         <value>1</value>
+    </property>
+    <property> <!-- the default: 128MB -->
+      <name>dfs.blocksize</name>
+      <value>134217728</value>
     </property>
     <property>
         <name>dfs.datanode.synconclose</name>
